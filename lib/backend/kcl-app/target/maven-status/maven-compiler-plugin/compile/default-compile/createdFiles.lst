@@ -1,0 +1,4 @@
+com/amazon/kinesis/immersionday/App$1.class
+com/amazon/kinesis/immersionday/App$SampleRecordProcessorFactory.class
+com/amazon/kinesis/immersionday/App.class
+com/amazon/kinesis/immersionday/App$SampleRecordProcessor.class

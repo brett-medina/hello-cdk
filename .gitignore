@@ -2,6 +2,10 @@
 !jest.config.js
 *.d.ts
 node_modules
+*/target
+.idea
+.gradle
+kcl-app/target
 
 # CDK asset staging directory
 .cdk.staging

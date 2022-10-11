@@ -27,7 +27,7 @@ export class HelloCdkStack extends cdk.Stack {
       environment: {
         dynamoDBTableName: table.tableName
       },
-      code: lambda.Code.fromAsset(path.join(__dirname, 'lambda')),
+      code: lambda.Code.fromAsset(path.join(__dirname, 'backend/lambda')),
       timeout: cdk.Duration.minutes(1)
     });
 
@@ -41,9 +41,5 @@ export class HelloCdkStack extends cdk.Stack {
 
     table.grantWriteData(fn);
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'HelloCdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
   }
 }
