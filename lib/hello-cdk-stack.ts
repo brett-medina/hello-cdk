@@ -1,7 +1,12 @@
 import * as cdk from 'aws-cdk-lib';
-import { aws_kinesis as kinesis, aws_dynamodb as dynamodb, aws_lambda as lambda } from 'aws-cdk-lib';
-import { ManagedPolicy } from 'aws-cdk-lib/aws-iam';
+import {
+  aws_kinesis as kinesis,
+  aws_dynamodb as dynamodb,
+  aws_lambda as lambda,
+  aws_s3 as s3 
+} from 'aws-cdk-lib';
 import { KinesisEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+import * as kinesisanalytics from 'aws-cdk-lib/aws-kinesisanalyticsv2';
 import { Construct } from 'constructs';
 import * as path from 'path';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -40,6 +45,14 @@ export class HelloCdkStack extends cdk.Stack {
     }))
 
     table.grantWriteData(fn);
+
+    const taxiDataBucket = new s3.Bucket(this, `nyctaxitrips-108545`, {
+      removalPolicy: cdk.RemovalPolicy.RETAIN
+    })
+
+    const curatedDataBucket = new s3.Bucket(this, `curateddata-108545`, {
+      removalPolicy: cdk.RemovalPolicy.RETAIN
+    })
 
   }
 }
